@@ -1528,4 +1528,11 @@
   <attr api-since="29" path="/api/package[@name='java.lang']/class[@name='StringBuilder']" name="extends-generic-aware">java.lang.AbstractStringBuilder</attr>
   <!-- We don't need to remove any method from Java.Lang.AbstractStringBuilder because they are all virtual methods -->
 
+  <!-- Api 30 adjustments -->
+  <!-- We need to remove abstract method close from CameraOfflineSession since it is already defined on base abstract class CameraCaptureSession -->
+  <remove-node api-since="30" path="/api/package[@name='android.hardware.camera2']/class[@name='CameraOfflineSession']/method[@name='close' and count(parameter)=0]" />
+
+  <!-- Namespace android.view.inline should be renamed to Android.Views.Inline -->
+  <attr api-since="30" path="/api/package[@name='android.view.inline']" name="managedName">Android.Views.Inline</attr>
+
 </metadata>
